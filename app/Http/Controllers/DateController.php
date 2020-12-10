@@ -24,7 +24,7 @@ class DateController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -35,7 +35,15 @@ class DateController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $date = new Date();
+
+        $date->start_date  =  $request->input('start_date');
+        $date->end_date    =  $request->input('end_date');
+        $date->state       =  $request->input('state');
+
+        $date->save();
+
+        return response()->json($date,200);
     }
 
     /**
